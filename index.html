@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WhatsApp Clone</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- Authentication Screen -->
+  <section id="auth-container">
+    <h1>WhatsApp Clone</h1>
+    <div class="auth-box">
+      <input type="email" id="email" placeholder="Enter Email"/>
+      <input type="password" id="password" placeholder="Enter Password"/>
+      <div class="auth-buttons">
+        <button id="login-btn">Login</button>
+        <button id="signup-btn">Sign Up</button>
+        <button id="google-btn">Login with Google</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Chat App -->
+  <section id="app-container" class="hidden">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <header class="profile-header">
+        <img id="user-photo" src="" alt="User"/>
+        <span id="user-name"></span>
+        <button id="logout-btn">Logout</button>
+      </header>
+      <nav id="user-list" class="user-list"></nav>
+    </aside>
+
+    <!-- Chat Section -->
+    <main class="chat-section">
+      <!-- Chat Header -->
+      <header class="chat-header">
+        <img id="chat-photo" src="" alt="Chat"/>
+        <div class="chat-info">
+          <span id="chat-name"></span>
+          <small id="chat-status">last seen recently</small>
+        </div>
+      </header>
+
+      <!-- Messages -->
+      <div id="chat-messages" class="chat-messages"></div>
+
+      <!-- Typing Indicator -->
+      <div id="typing-indicator" class="typing hidden">
+        <span id="typing-user"></span> is typing...
+      </div>
+
+      <!-- Chat Input -->
+      <footer class="chat-input">
+        <input type="text" id="message-input" placeholder="Type a message"/>
+        <input type="file" id="image-input" hidden/>
+        <button id="emoji-btn">😊</button>
+        <button id="image-btn">📷</button>
+        <button id="send-btn">Send</button>
+      </footer>
+    </main>
+  </section>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
