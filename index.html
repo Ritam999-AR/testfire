@@ -1,68 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WhatsApp Clone</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp-like Chat App</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Authentication Screen -->
-  <section id="auth-container">
-    <h1>WhatsApp Clone</h1>
-    <div class="auth-box">
-      <input type="email" id="email" placeholder="Enter Email"/>
-      <input type="password" id="password" placeholder="Enter Password"/>
-      <div class="auth-buttons">
-        <button id="login-btn">Login</button>
-        <button id="signup-btn">Sign Up</button>
-        <button id="google-btn">Login with Google</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main Chat App -->
-  <section id="app-container" class="hidden">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <header class="profile-header">
-        <img id="user-photo" src="" alt="User"/>
-        <span id="user-name"></span>
-        <button id="logout-btn">Logout</button>
-      </header>
-      <nav id="user-list" class="user-list"></nav>
-    </aside>
-
-    <!-- Chat Section -->
-    <main class="chat-section">
-      <!-- Chat Header -->
-      <header class="chat-header">
-        <img id="chat-photo" src="" alt="Chat"/>
-        <div class="chat-info">
-          <span id="chat-name"></span>
-          <small id="chat-status">last seen recently</small>
+    <div id="app">
+        <div class="sidebar">
+            <div class="user-info">
+                <span id="current-user-email"></span>
+                <button id="sign-out-btn">Sign Out</button>
+            </div>
+            <div class="search-users">
+                <input type="text" id="search-input" placeholder="Search users by email or username">
+                <button id="search-btn">Search</button>
+                <div id="search-results"></div>
+            </div>
+            <div class="friend-requests">
+                <h3>Friend Requests</h3>
+                <ul id="friend-requests-list"></ul>
+            </div>
+            <div class="friends-list">
+                <h3>Friends</h3>
+                <ul id="friends-list"></ul>
+            </div>
         </div>
-      </header>
+        <div class="main-content">
+            <div class="chat-header">
+                <h2 id="chat-title">Select a friend to chat</h2>
+                <div class="call-buttons">
+                    <button id="video-call-btn">Start Video Call</button>
+                    <button id="voice-call-btn">Start Voice Call</button>
+                </div>
+            </div>
+            <div class="chat-area">
+                <div class="messages" id="messages"></div>
+                <div class="message-input">
+                    <input type="text" id="message-text" placeholder="Type a message...">
+                    <button id="send-message-btn">Send</button>
+                </div>
+            </div>
+            <div class="video-call-area">
+                <video id="local-video" autoplay muted></video>
+                <video id="remote-video" autoplay></video>
+            </div>
+        </div>
+    </div>
 
-      <!-- Messages -->
-      <div id="chat-messages" class="chat-messages"></div>
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome</h2>
+            <input type="email" id="auth-email" placeholder="Email">
+            <input type="password" id="auth-password" placeholder="Password">
+            <button id="login-btn">Login</button>
+            <button id="signup-btn">Sign Up</button>
+        </div>
+    </div>
 
-      <!-- Typing Indicator -->
-      <div id="typing-indicator" class="typing hidden">
-        <span id="typing-user"></span> is typing...
-      </div>
-
-      <!-- Chat Input -->
-      <footer class="chat-input">
-        <input type="text" id="message-input" placeholder="Type a message"/>
-        <input type="file" id="image-input" hidden/>
-        <button id="emoji-btn">😊</button>
-        <button id="image-btn">📷</button>
-        <button id="send-btn">Send</button>
-      </footer>
-    </main>
-  </section>
-
-  <script type="module" src="script.js"></script>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-database-compat.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
+
